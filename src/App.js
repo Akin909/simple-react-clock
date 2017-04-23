@@ -32,7 +32,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      choice: 'T',
+      format: 'T',
       twelveHours: true,
     };
 
@@ -43,7 +43,7 @@ class App extends Component {
     event.preventDefault();
     console.log('name', event.target.value);
     this.setState({
-      choice: event.target.value,
+      format: event.target.value,
       twelveHours: event.target.name === 'M' ? false : true,
     });
   }
@@ -64,7 +64,7 @@ class App extends Component {
           <option value="T"> 12 hour clock</option>
           <option value="M"> 24 hour clock</option>
         </Select>
-        <Clock format={this.state.choice} />
+        <Clock {...this.state} />
       </Container>
     );
   }

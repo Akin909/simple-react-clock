@@ -58,7 +58,7 @@ class Clock extends Component {
   render() {
     return (
       <ClockContainer className="clock">
-        <Formatter {...this.state} format={this.props.format} />
+        <Formatter {...this.props} {...this.state} />
       </ClockContainer>
     );
   }
