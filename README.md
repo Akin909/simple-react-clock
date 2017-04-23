@@ -1,4 +1,4 @@
-Reactive-Clock :laugh:
+Reactive-Clock :laughing:
 ===
 
 Ok so very small project, another learning exercise which took way longer
