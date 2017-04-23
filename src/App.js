@@ -11,12 +11,29 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+const Select = styled.select`
+  border: none;
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: 'Helvetica', sans-serif;
+  box-shadow: 0px 1px 1px grey;
+`;
+
+const Title = styled.header`
+  text-align: center;
+  width: 100%;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 2.0rem;
+`;
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      choice: '',
+      choice: 'T',
+      twelveHours: true,
     };
 
     this.handleChoice = this.handleChoice.bind(this);
@@ -24,15 +41,18 @@ class App extends Component {
 
   handleChoice(event) {
     event.preventDefault();
+    console.log('name', event.target.value);
     this.setState({
       choice: event.target.value,
+      twelveHours: event.target.name === 'M' ? false : true,
     });
   }
 
   render() {
     return (
       <Container>
-        <select
+        <Title>Reactive Clock 😝</Title>
+        <Select
           value={this.state.choice}
           onChange={this.handleChoice}
           id="time__options"
@@ -42,7 +62,8 @@ class App extends Component {
           <option value="m">minutes</option>
           <option value="s">seconds</option>
           <option value="T"> 12 hour clock</option>
-        </select>
+          <option value="M"> 24 hour clock</option>
+        </Select>
         <Clock format={this.state.choice} />
       </Container>
     );

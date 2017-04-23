@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Formatter } from './formatter';
 
 const ClockContainer = styled.div`
-  background: mediumseagreen;
+  background: #acdffc;
   box-shadow: 0px 1px 1px grey;
   width: 50%;
   height: 20%;
@@ -28,7 +28,6 @@ class Clock extends Component {
       minutes: currentTime.getMinutes(),
       seconds: currentTime.getSeconds(),
       ampm: this.hours >= 12 ? 'pm' : 'am',
-      twelveHours: true,
     };
   }
   componentDidMount() {
@@ -59,7 +58,7 @@ class Clock extends Component {
   render() {
     return (
       <ClockContainer className="clock">
-        <Formatter {...this.state} format={this.props.format}/>
+        <Formatter {...this.state} format={this.props.format} />
       </ClockContainer>
     );
   }
